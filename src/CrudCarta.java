@@ -24,47 +24,6 @@ public class CrudCarta {
         }
     }
 
-    public void InsertCartaUsuario(int idUsuario, int idCarta) {
-        String sqlInsert = "INSERT INTO CARTA_USUARIO(ID_USUARIO, NUMERO_CARTA) VALUES(?, ?)";
-        try {
-            statement = conexao.prepareStatement(sqlInsert);
-            statement.setInt(1, idUsuario);
-            statement.setInt(2, idCarta);
-            statement.executeUpdate();
-        } catch (Exception e) {
-            System.out.println("Erro ao incluir os dados" + e.toString());
-        } finally {
-            ConnFactory.closeConn(conexao, statement);
-        }
-    }
-
-    public void DeleteCartaUsuario(int idUsuario, int idCarta) {
-        String sqlDelete = "DELETE FROM CARTA_USUARIO WHERE ID_USUARIO = ? AND NUMERO_CARTA = ?";
-        try {
-            statement = conexao.prepareStatement(sqlDelete);
-            statement.setInt(1, idUsuario);
-            statement.setInt(2, idCarta);
-            statement.executeUpdate();
-        } catch (Exception e) {
-            System.out.println("Erro ao excluir os dados" + e.toString());
-        } finally {
-            ConnFactory.closeConn(conexao, statement);
-        }
-    }
-
-    public void SelectCartaUsuario(int idUsuario) {
-        String sqlSelect = "SELECT * FROM CARTA_USUARIO WHERE ID_USUARIO = ?";
-        try {
-            statement = conexao.prepareStatement(sqlSelect);
-            statement.setInt(1, idUsuario);
-            statement.executeQuery();
-        } catch (Exception e) {
-            System.out.println("Erro ao consultar os dados" + e.toString());
-        } finally {
-            ConnFactory.closeConn(conexao, statement);
-        }
-    }
-
     public void DeleteCarta(Cartas carta) {
         String sqlDelete = "DELETE FROM CARTA WHERE NOME = ?";
         try {
@@ -102,6 +61,47 @@ public class CrudCarta {
         try {
             statement = conexao.prepareStatement(sqlSelect);
             statement.setString(1, carta.getNome());
+            statement.executeQuery();
+        } catch (Exception e) {
+            System.out.println("Erro ao consultar os dados" + e.toString());
+        } finally {
+            ConnFactory.closeConn(conexao, statement);
+        }
+    }
+
+    public void InsertCartaUsuario(int idUsuario, int idCarta) {
+        String sqlInsert = "INSERT INTO CARTA_USUARIO(ID_USUARIO, NUMERO_CARTA) VALUES(?, ?)";
+        try {
+            statement = conexao.prepareStatement(sqlInsert);
+            statement.setInt(1, idUsuario);
+            statement.setInt(2, idCarta);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Erro ao incluir os dados" + e.toString());
+        } finally {
+            ConnFactory.closeConn(conexao, statement);
+        }
+    }
+
+    public void DeleteCartaUsuario(int idUsuario, int idCarta) {
+        String sqlDelete = "DELETE FROM CARTA_USUARIO WHERE ID_USUARIO = ? AND NUMERO_CARTA = ?";
+        try {
+            statement = conexao.prepareStatement(sqlDelete);
+            statement.setInt(1, idUsuario);
+            statement.setInt(2, idCarta);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Erro ao excluir os dados" + e.toString());
+        } finally {
+            ConnFactory.closeConn(conexao, statement);
+        }
+    }
+
+    public void SelectCartaUsuario(int idUsuario) {
+        String sqlSelect = "SELECT * FROM CARTA_USUARIO WHERE ID_USUARIO = ?";
+        try {
+            statement = conexao.prepareStatement(sqlSelect);
+            statement.setInt(1, idUsuario);
             statement.executeQuery();
         } catch (Exception e) {
             System.out.println("Erro ao consultar os dados" + e.toString());
