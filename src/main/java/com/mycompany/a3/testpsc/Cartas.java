@@ -1,6 +1,7 @@
 package com.mycompany.a3.testpsc;
 
 public class Cartas {
+    private int numero;
     public String nome;
     public String tipo;
     public String atributo;
@@ -51,5 +52,11 @@ public class Cartas {
     }
     public void setDefesa(int defesa) {
         this.defesa = defesa;
+    }
+    public int getNumero() {
+        return numero;
+    }
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 }

@@ -173,7 +173,25 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_EditCardActionPerformed
 
     private void AddCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCardActionPerformed
-        // TODO add your handling code here:
+       Cartas carta = new Cartas();
+       CrudCarta crudCarta = new CrudCarta();
+
+        carta.setNome(JOptionPane.showInputDialog("Digite o nome da carta: "));
+        carta.setTipo(JOptionPane.showInputDialog("Digite o tipo da carta: "));
+        carta.setAtributo(JOptionPane.showInputDialog("Digite o atributo da carta: "));
+        carta.setEfeito(JOptionPane.showInputDialog("Digite o efeito da carta: "));
+        carta.setNivel(Integer.parseInt(JOptionPane.showInputDialog("Digite o nivel da carta: ")));
+        carta.setAtaque(Integer.parseInt(JOptionPane.showInputDialog("Digite o ataque da carta: ")));
+        carta.setDefesa(Integer.parseInt(JOptionPane.showInputDialog("Digite a defesa da carta: ")));
+
+        crudCarta.InsertCarta(carta);
+
+        String email = JOptionPane.showInputDialog("Digite o email do usuário para confirmação: ");
+        int idUsuario = crudCarta.GetUsuarioByEmail(email);
+
+        crudCarta.InsertCartaUsuario(carta.getNumero(), idUsuario);
+
+        JOptionPane.showMessageDialog(null, "Carta cadastrada com sucesso!");
     }//GEN-LAST:event_AddCardActionPerformed
 
     private void ListCardsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListCardsActionPerformed
@@ -181,7 +199,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_ListCardsActionPerformed
 
     private void DeleteCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCardActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_DeleteCardActionPerformed
 
     /**

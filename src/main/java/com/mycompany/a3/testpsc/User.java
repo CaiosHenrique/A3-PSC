@@ -1,7 +1,7 @@
 package com.mycompany.a3.testpsc;
 
-public final class User
-{   private String  sUser;
+public final class User { 
+    private String  sUser;
     private String  sPass;
     private String  sEmail;
     
@@ -12,7 +12,7 @@ public final class User
     {   sUser = sU;
         sPass = sP;
         sEmail = sE;
-    }
+    }   
 
     public String getEmail() {
         return sEmail;

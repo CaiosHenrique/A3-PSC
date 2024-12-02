@@ -10,14 +10,14 @@ CREATE TABLE carta (
 );
 
 CREATE TABLE usuario (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    ID INT PRIMARY KEY AUTO_INCREMENT,
     user VARCHAR(60) NOT NULL,
     pass TEXT NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE
+    EMAIL VARCHAR(255) NOT NULL UNIQUE
 );
 
 create table cartadousuario(
-	id_usuario INT,
+	ID_USUARIO INT,
     numero_carta INT,
     PRIMARY KEY (id_usuario, numero_carta),
     FOREIGN KEY (id_usuario) REFERENCES usuario(id),

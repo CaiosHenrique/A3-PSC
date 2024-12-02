@@ -8,7 +8,7 @@ public class CrudCarta {
     PreparedStatement statement = null;
 
     public void InsertCarta(Cartas carta) {
-        String sqlInsert = "INSERT INTO CARTAS(NOME, TIPO, ATRIBUTO, EFEITO, NIVEL, ATAQUE, DEFESA) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String sqlInsert = "INSERT INTO CARTA(NOME, TIPO, ATRIBUTO, EFEITO, NIVEL, ATAQUE, DEFESA) VALUES(?, ?, ?, ?, ?, ?, ?)";
         try {
             statement = conexao.prepareStatement(sqlInsert);
             statement.setString(1, carta.getNome());
@@ -71,11 +71,38 @@ public class CrudCarta {
         }
     }
 
+    public int GetUsuarioByEmail(String email) {
+        String sqlSelect = "SELECT ID FROM USUARIO WHERE EMAIL = ?";
+        try {
+            statement = conexao.prepareStatement(sqlSelect);
+            statement.setString(1, email);
+            statement.executeQuery();
+        } catch (Exception e) {
+            System.out.println("Erro ao consultar os dados" + e.toString());
+        } finally {
+            ConnFactory.closeConn(conexao, statement);
+        }
+        return 0;
+    }
+
+    public void GetUsuarioId(int id) {
+        String sqlSelect = "SELECT * FROM USUARIO WHERE ID = ?";
+        try {
+            statement = conexao.prepareStatement(sqlSelect);
+            statement.setInt(1, id);
+            statement.executeQuery();
+        } catch (Exception e) {
+            System.out.println("Erro ao consultar os dados" + e.toString());
+        } finally {
+            ConnFactory.closeConn(conexao, statement);
+        }
+    }
+
     public void InsertCartaUsuario(int idUsuario, int idCarta) {
         String sqlInsert = "INSERT INTO CARTA_USUARIO(ID_USUARIO, NUMERO_CARTA) VALUES(?, ?)";
         try {
             statement = conexao.prepareStatement(sqlInsert);
-            statement.setInt(1, idUsuario);
+            statement.setInt(1, GetUsuarioId(idUsuario));
             statement.setInt(2, idCarta);
             statement.executeUpdate();
         } catch (Exception e) {
