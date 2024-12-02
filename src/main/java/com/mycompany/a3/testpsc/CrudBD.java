@@ -137,14 +137,15 @@ public class CrudBD {
         return false;
     }
 
-    public void excluirReg(User uD) {
-        String sqlDelete = "DELETE FROM USUARIO WHERE USER = ?";
+    public boolean excluirReg(String email) {
+        String sqlDelete = "DELETE FROM USUARIO WHERE EMAIL = ?";
         Connection conn = ConnFactory.getConn();
         PreparedStatement stmt = null;
         try {
             stmt = conn.prepareStatement(sqlDelete);
-            stmt.setString(1, uD.getUser());
+            stmt.setString(1, email);
             stmt.executeUpdate();
+            return true;
         } catch (SQLException e) {
             try {
                 conn.rollback();
@@ -154,6 +155,7 @@ public class CrudBD {
         } finally {
             ConnFactory.closeConn(conn, stmt);
         }
+        return false;
     }
 
     public ArrayList<User> buscarTodos() {

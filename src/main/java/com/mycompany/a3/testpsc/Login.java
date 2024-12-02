@@ -118,6 +118,9 @@ public class Login extends javax.swing.JFrame {
 
         if (retorno) {
             JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
+            this.setVisible(false);
+            Menu menu = new Menu();
+            menu.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Dados do login estao invalidos");
         }
