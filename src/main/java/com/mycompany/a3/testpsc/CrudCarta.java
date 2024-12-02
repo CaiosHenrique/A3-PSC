@@ -101,8 +101,9 @@ public class CrudCarta {
     public void InsertCartaUsuario(int idUsuario, int idCarta) {
         String sqlInsert = "INSERT INTO CARTA_USUARIO(ID_USUARIO, NUMERO_CARTA) VALUES(?, ?)";
         try {
+            int id = GetUsuarioId(idUsuario);
             statement = conexao.prepareStatement(sqlInsert);
-            statement.setInt(1, GetUsuarioId(idUsuario));
+            statement.setInt(1, id);
             statement.setInt(2, idCarta);
             statement.executeUpdate();
         } catch (Exception e) {
