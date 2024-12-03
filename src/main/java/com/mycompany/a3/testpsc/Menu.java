@@ -173,34 +173,8 @@ public class Menu extends javax.swing.JFrame {
     }// GEN-LAST:event_EditCardActionPerformed
 
     private void AddCardActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_AddCardActionPerformed
-        Cartas carta = new Cartas();
-        CrudCarta crudCarta = new CrudCarta();
-        CrudBD crudBD = new CrudBD();
-        
-        carta.setNome(JOptionPane.showInputDialog("Digite o nome da carta: "));
-        carta.setTipo(JOptionPane.showInputDialog("Digite o tipo da carta: "));
-        carta.setAtributo(JOptionPane.showInputDialog("Digite o atributo da carta: "));
-        carta.setEfeito(JOptionPane.showInputDialog("Digite o efeito da carta: "));
-        carta.setNivel(Integer.parseInt(JOptionPane.showInputDialog("Digite o nivel da carta: ")));
-        carta.setAtaque(Integer.parseInt(JOptionPane.showInputDialog("Digite o ataque da carta: ")));
-        carta.setDefesa(Integer.parseInt(JOptionPane.showInputDialog("Digite a defesa da carta: ")));
-
-        
-
-        String email = JOptionPane.showInputDialog("Digite o email do usuário para confirmação: ");
-        if (email == null || email.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "O campo de email está vazio!");
-        } else if (!crudBD.recuperarreg(email)) {
-            JOptionPane.showMessageDialog(null, "Email não encontrado.");
-        } else {
-
-        int idUsuario = crudCarta.GetUsuarioByEmail(email);
-        int idDaCarta = crudCarta.InsertCarta(carta);
-        
-        crudCarta.InsertCartaUsuario(idUsuario, idDaCarta);
-
-        JOptionPane.showMessageDialog(null, "Carta cadastrada com sucesso!");
-        }
+        AddCardMenu addCard = new AddCardMenu();
+        addCard.setVisible(true);
     }// GEN-LAST:event_AddCardActionPerformed
 
     private void ListCardsActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ListCardsActionPerformed
@@ -208,23 +182,8 @@ public class Menu extends javax.swing.JFrame {
     }// GEN-LAST:event_ListCardsActionPerformed
 
     private void DeleteCardActionPerformed(java.awt.event.ActionEvent evt) {
-        CrudCarta crudCarta = new CrudCarta();
-        CrudBD crudBD = new CrudBD();
-
-        String email = JOptionPane.showInputDialog("Digite o email do usuário para confirmação: ");
-        if (email == null || email.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "O campo de email está vazio!");
-        } else if (!crudBD.recuperarreg(email)) {
-            JOptionPane.showMessageDialog(null, "Email não encontrado.");
-        } else {
-            int idUsuario = crudCarta.GetUsuarioByEmail(email);
-            int idDaCarta = Integer.parseInt(JOptionPane.showInputDialog("Digite o número da carta que deseja deletar: "));
-
-            crudCarta.DeleteCartaUsuario(idUsuario, idDaCarta);
-            crudCarta.DeleteCarta(idDaCarta);
-
-            JOptionPane.showMessageDialog(null, "Carta deletada com sucesso!");
-        }
+         DeleteCardMenu delCard = new DeleteCardMenu();
+        delCard.setVisible(true);
     }
 
     /**

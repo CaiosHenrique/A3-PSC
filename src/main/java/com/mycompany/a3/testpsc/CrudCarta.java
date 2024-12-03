@@ -36,7 +36,7 @@ public class CrudCarta {
     }
 
     public void DeleteCarta(int id) {
-        String sqlDelete = "DELETE FROM CARTA WHERE id = ?";
+        String sqlDelete = "DELETE FROM CARTA WHERE numero = ?";
         try {
             statement = conexao.prepareStatement(sqlDelete);
             statement.setInt(1, id);
