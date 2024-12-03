@@ -2,8 +2,6 @@ package com.mycompany.a3.testpsc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class CrudCarta {
     Connection conexao = ConnFactory.getConn();
@@ -31,7 +29,8 @@ public class CrudCarta {
             }
         } catch (Exception e) {
             System.out.println("Erro ao incluir os dados" + e.toString());
-        
+        } finally {
+            ConnFactory.closeConn(conexao, statement);
         }
         return idCarta;
     }
@@ -93,13 +92,14 @@ public class CrudCarta {
         }
     } catch (Exception e) {
         System.out.println("Erro ao consultar os dados: " + e.toString());
-    
+    } finally {
+        ConnFactory.closeConn(conexao, statement);
     }
     return idUsuario;
 }
 
     public void InsertCartaUsuario(int idUsuario, int idCarta) {
-        String sqlInsert = "INSERT INTO cartadousuario(ID_USUARIO, NUMERO_CARTA) VALUES(?, ?)";
+        String sqlInsert = "INSERT INTO CARTA_USUARIO(ID_USUARIO, NUMERO_CARTA) VALUES(?, ?)";
         try {
             statement = conexao.prepareStatement(sqlInsert);
             statement.setInt(1, idUsuario);
