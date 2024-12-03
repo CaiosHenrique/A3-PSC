@@ -2,24 +2,25 @@ package com.mycompany.a3.testpsc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class CrudCarta {
     Connection conexao = ConnFactory.getConn();
     PreparedStatement statement = null;
 
     public int InsertCarta(Cartas carta) {
-        String sqlInsert = "INSERT INTO CARTA (NUMERO, NOME, TIPO, ATRIBUTO, EFEITO, NIVEL, ATAQUE, DEFESA) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlInsert = "INSERT INTO CARTA (NOME, TIPO, ATRIBUTO, EFEITO, NIVEL, ATAQUE, DEFESA) VALUES (?, ?, ?, ?, ?, ?, ?)";
         int idCarta = 0;
         try {
             statement = conexao.prepareStatement(sqlInsert, Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, carta.getNumero());
-            statement.setString(2, carta.getNome());
-            statement.setString(3, carta.getTipo());
-            statement.setString(4, carta.getAtributo());
-            statement.setString(5, carta.getEfeito());
-            statement.setInt(6, carta.getNivel());
-            statement.setInt(7, carta.getAtaque());
-            statement.setInt(8, carta.getDefesa());
+            statement.setString(1, carta.getNome());
+            statement.setString(2, carta.getTipo());
+            statement.setString(3, carta.getAtributo());
+            statement.setString(4, carta.getEfeito());
+            statement.setInt(5, carta.getNivel());
+            statement.setInt(6, carta.getAtaque());
+            statement.setInt(7, carta.getDefesa());
 
             statement.executeUpdate();
     
@@ -29,8 +30,7 @@ public class CrudCarta {
             }
         } catch (Exception e) {
             System.out.println("Erro ao incluir os dados" + e.toString());
-        } finally {
-            ConnFactory.closeConn(conexao, statement);
+        
         }
         return idCarta;
     }
@@ -39,7 +39,7 @@ public class CrudCarta {
         String sqlDelete = "DELETE FROM CARTA WHERE id = ?";
         try {
             statement = conexao.prepareStatement(sqlDelete);
-            statement.setString(1, carta.getNome());
+            statement.setInt(1, id);
             statement.executeUpdate();
         } catch (Exception e) {
             System.out.println("Erro ao excluir os dados" + e.toString());
@@ -81,25 +81,24 @@ public class CrudCarta {
     }
 
     public int GetUsuarioByEmail(String email) {
-    String sqlSelect = "SELECT NUMERO FROM USUARIO WHERE EMAIL = ?";
+    String sqlSelect = "SELECT * FROM USUARIO WHERE EMAIL = ?";
     int idUsuario = 0;
     try {
         statement = conexao.prepareStatement(sqlSelect);
         statement.setString(1, email);
         ResultSet rs = statement.executeQuery();
         if (rs.next()) {
-            idUsuario = rs.getInt("NUMERO");
+            idUsuario = rs.getInt("id");
         }
     } catch (Exception e) {
         System.out.println("Erro ao consultar os dados: " + e.toString());
-    } finally {
-        ConnFactory.closeConn(conexao, statement);
+    
     }
     return idUsuario;
 }
 
     public void InsertCartaUsuario(int idUsuario, int idCarta) {
-        String sqlInsert = "INSERT INTO CARTA_USUARIO(ID_USUARIO, NUMERO_CARTA) VALUES(?, ?)";
+        String sqlInsert = "INSERT INTO cartadousuario(ID_USUARIO, NUMERO_CARTA) VALUES(?, ?)";
         try {
             statement = conexao.prepareStatement(sqlInsert);
             statement.setInt(1, idUsuario);

@@ -175,8 +175,8 @@ public class Menu extends javax.swing.JFrame {
     private void AddCardActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_AddCardActionPerformed
         Cartas carta = new Cartas();
         CrudCarta crudCarta = new CrudCarta();
-
-        carta.setNumero(Integer.parseInt(JOptionPane.showInputDialog("Digite o número da carta: ")));
+        CrudBD crudBD = new CrudBD();
+        
         carta.setNome(JOptionPane.showInputDialog("Digite o nome da carta: "));
         carta.setTipo(JOptionPane.showInputDialog("Digite o tipo da carta: "));
         carta.setAtributo(JOptionPane.showInputDialog("Digite o atributo da carta: "));
@@ -185,20 +185,22 @@ public class Menu extends javax.swing.JFrame {
         carta.setAtaque(Integer.parseInt(JOptionPane.showInputDialog("Digite o ataque da carta: ")));
         carta.setDefesa(Integer.parseInt(JOptionPane.showInputDialog("Digite a defesa da carta: ")));
 
-        int idDaCarta = crudCarta.InsertCarta(carta);
+        
 
         String email = JOptionPane.showInputDialog("Digite o email do usuário para confirmação: ");
         if (email == null || email.isEmpty()) {
             JOptionPane.showMessageDialog(null, "O campo de email está vazio!");
-        } else if (!crudCarta.recuperarreg(email)) {
+        } else if (!crudBD.recuperarreg(email)) {
             JOptionPane.showMessageDialog(null, "Email não encontrado.");
-        }
+        } else {
 
         int idUsuario = crudCarta.GetUsuarioByEmail(email);
-
+        int idDaCarta = crudCarta.InsertCarta(carta);
+        
         crudCarta.InsertCartaUsuario(idUsuario, idDaCarta);
 
         JOptionPane.showMessageDialog(null, "Carta cadastrada com sucesso!");
+        }
     }// GEN-LAST:event_AddCardActionPerformed
 
     private void ListCardsActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ListCardsActionPerformed
@@ -206,7 +208,7 @@ public class Menu extends javax.swing.JFrame {
     }// GEN-LAST:event_ListCardsActionPerformed
 
     private void DeleteCardActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_DeleteCardActionPerformed
-
+        
     }// GEN-LAST:event_DeleteCardActionPerformed
 
     /**
