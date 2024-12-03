@@ -207,9 +207,25 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }// GEN-LAST:event_ListCardsActionPerformed
 
-    private void DeleteCardActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_DeleteCardActionPerformed
-        
-    }// GEN-LAST:event_DeleteCardActionPerformed
+    private void DeleteCardActionPerformed(java.awt.event.ActionEvent evt) {
+        CrudCarta crudCarta = new CrudCarta();
+        CrudBD crudBD = new CrudBD();
+
+        String email = JOptionPane.showInputDialog("Digite o email do usuário para confirmação: ");
+        if (email == null || email.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo de email está vazio!");
+        } else if (!crudBD.recuperarreg(email)) {
+            JOptionPane.showMessageDialog(null, "Email não encontrado.");
+        } else {
+            int idUsuario = crudCarta.GetUsuarioByEmail(email);
+            int idDaCarta = Integer.parseInt(JOptionPane.showInputDialog("Digite o número da carta que deseja deletar: "));
+
+            crudCarta.DeleteCartaUsuario(idUsuario, idDaCarta);
+            crudCarta.DeleteCarta(idDaCarta);
+
+            JOptionPane.showMessageDialog(null, "Carta deletada com sucesso!");
+        }
+    }
 
     /**
      * @param args the command line arguments

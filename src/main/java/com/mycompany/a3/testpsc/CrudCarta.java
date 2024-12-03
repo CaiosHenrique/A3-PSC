@@ -120,9 +120,7 @@ public class CrudCarta {
             statement.executeUpdate();
         } catch (Exception e) {
             System.out.println("Erro ao excluir os dados" + e.toString());
-        } finally {
-            ConnFactory.closeConn(conexao, statement);
-        }
+        } 
     }
 
     public void SelectCartaUsuario(int idUsuario) {
