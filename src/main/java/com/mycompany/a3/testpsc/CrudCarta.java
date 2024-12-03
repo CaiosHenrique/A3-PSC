@@ -85,25 +85,11 @@ public class CrudCarta {
         return 0;
     }
 
-    public void GetUsuarioId(int id) {
-        String sqlSelect = "SELECT * FROM USUARIO WHERE ID = ?";
-        try {
-            statement = conexao.prepareStatement(sqlSelect);
-            statement.setInt(1, id);
-            statement.executeQuery();
-        } catch (Exception e) {
-            System.out.println("Erro ao consultar os dados" + e.toString());
-        } finally {
-            ConnFactory.closeConn(conexao, statement);
-        }
-    }
-
     public void InsertCartaUsuario(int idUsuario, int idCarta) {
         String sqlInsert = "INSERT INTO CARTA_USUARIO(ID_USUARIO, NUMERO_CARTA) VALUES(?, ?)";
         try {
-            int id = GetUsuarioId(idUsuario);
             statement = conexao.prepareStatement(sqlInsert);
-            statement.setInt(1, id);
+            statement.setInt(1, idUsuario);
             statement.setInt(2, idCarta);
             statement.executeUpdate();
         } catch (Exception e) {
