@@ -7,10 +7,11 @@ public class CrudCarta {
     Connection conexao = ConnFactory.getConn();
     PreparedStatement statement = null;
 
-    public void InsertCarta(Cartas carta) {
-        String sqlInsert = "INSERT INTO CARTA(NOME, TIPO, ATRIBUTO, EFEITO, NIVEL, ATAQUE, DEFESA) VALUES(?, ?, ?, ?, ?, ?, ?)";
+    public int InsertCarta(Cartas carta) {
+        String sqlInsert = "INSERT INTO CARTA (NOME, TIPO, ATRIBUTO, EFEITO, NIVEL, ATAQUE, DEFESA) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        int idCarta = 0;
         try {
-            statement = conexao.prepareStatement(sqlInsert);
+            statement = conexao.prepareStatement(sqlInsert, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, carta.getNome());
             statement.setString(2, carta.getTipo());
             statement.setString(3, carta.getAtributo());
@@ -19,11 +20,17 @@ public class CrudCarta {
             statement.setInt(6, carta.getAtaque());
             statement.setInt(7, carta.getDefesa());
             statement.executeUpdate();
+    
+            ResultSet rs = statement.getGeneratedKeys();
+            if (rs.next()) {
+                idCarta = rs.getInt(1);
+            }
         } catch (Exception e) {
             System.out.println("Erro ao incluir os dados" + e.toString());
         } finally {
             ConnFactory.closeConn(conexao, statement);
         }
+        return idCarta;
     }
 
     public void DeleteCarta(Cartas carta) {
@@ -72,18 +79,22 @@ public class CrudCarta {
     }
 
     public int GetUsuarioByEmail(String email) {
-        String sqlSelect = "SELECT ID FROM USUARIO WHERE EMAIL = ?";
-        try {
-            statement = conexao.prepareStatement(sqlSelect);
-            statement.setString(1, email);
-            statement.executeQuery();
-        } catch (Exception e) {
-            System.out.println("Erro ao consultar os dados" + e.toString());
-        } finally {
-            ConnFactory.closeConn(conexao, statement);
+    String sqlSelect = "SELECT ID FROM USUARIO WHERE EMAIL = ?";
+    int idUsuario = 0;
+    try {
+        statement = conexao.prepareStatement(sqlSelect);
+        statement.setString(1, email);
+        ResultSet rs = statement.executeQuery();
+        if (rs.next()) {
+            idUsuario = rs.getInt("ID");
         }
-        return 0;
+    } catch (Exception e) {
+        System.out.println("Erro ao consultar os dados: " + e.toString());
+    } finally {
+        ConnFactory.closeConn(conexao, statement);
     }
+    return idUsuario;
+}
 
     public void InsertCartaUsuario(int idUsuario, int idCarta) {
         String sqlInsert = "INSERT INTO CARTA_USUARIO(ID_USUARIO, NUMERO_CARTA) VALUES(?, ?)";
