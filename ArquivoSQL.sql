@@ -1,5 +1,5 @@
 CREATE TABLE carta (
-	numero int PRIMARY KEY auto_increment,
+	numero int PRIMARY KEY,
     nome VARCHAR(255),
     tipo VARCHAR(255),
     atributo VARCHAR(255),

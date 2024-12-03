@@ -10,17 +10,19 @@ public class CrudCarta {
     PreparedStatement statement = null;
 
     public int InsertCarta(Cartas carta) {
-        String sqlInsert = "INSERT INTO CARTA (NOME, TIPO, ATRIBUTO, EFEITO, NIVEL, ATAQUE, DEFESA) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sqlInsert = "INSERT INTO CARTA (NUMERO, NOME, TIPO, ATRIBUTO, EFEITO, NIVEL, ATAQUE, DEFESA) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         int idCarta = 0;
         try {
             statement = conexao.prepareStatement(sqlInsert, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, carta.getNome());
-            statement.setString(2, carta.getTipo());
-            statement.setString(3, carta.getAtributo());
-            statement.setString(4, carta.getEfeito());
-            statement.setInt(5, carta.getNivel());
-            statement.setInt(6, carta.getAtaque());
-            statement.setInt(7, carta.getDefesa());
+            statement.setInt(1, carta.getNumero());
+            statement.setString(2, carta.getNome());
+            statement.setString(3, carta.getTipo());
+            statement.setString(4, carta.getAtributo());
+            statement.setString(5, carta.getEfeito());
+            statement.setInt(6, carta.getNivel());
+            statement.setInt(7, carta.getAtaque());
+            statement.setInt(8, carta.getDefesa());
+
             statement.executeUpdate();
     
             ResultSet rs = statement.getGeneratedKeys();
@@ -34,8 +36,8 @@ public class CrudCarta {
         return idCarta;
     }
 
-    public void DeleteCarta(Cartas carta) {
-        String sqlDelete = "DELETE FROM CARTA WHERE NOME = ?";
+    public void DeleteCarta(int id) {
+        String sqlDelete = "DELETE FROM CARTA WHERE id = ?";
         try {
             statement = conexao.prepareStatement(sqlDelete);
             statement.setString(1, carta.getNome());
@@ -80,14 +82,14 @@ public class CrudCarta {
     }
 
     public int GetUsuarioByEmail(String email) {
-    String sqlSelect = "SELECT ID FROM USUARIO WHERE EMAIL = ?";
+    String sqlSelect = "SELECT NUMERO FROM USUARIO WHERE EMAIL = ?";
     int idUsuario = 0;
     try {
         statement = conexao.prepareStatement(sqlSelect);
         statement.setString(1, email);
         ResultSet rs = statement.executeQuery();
         if (rs.next()) {
-            idUsuario = rs.getInt("ID");
+            idUsuario = rs.getInt("NUMERO");
         }
     } catch (Exception e) {
         System.out.println("Erro ao consultar os dados: " + e.toString());
@@ -111,7 +113,7 @@ public class CrudCarta {
     }
 
     public void DeleteCartaUsuario(int idUsuario, int idCarta) {
-        String sqlDelete = "DELETE FROM CARTA_USUARIO WHERE ID_USUARIO = ? AND NUMERO_CARTA = ?";
+        String sqlDelete = "DELETE FROM cartadousuario WHERE ID_USUARIO = ? AND NUMERO_CARTA = ?";
         try {
             statement = conexao.prepareStatement(sqlDelete);
             statement.setInt(1, idUsuario);
@@ -125,7 +127,7 @@ public class CrudCarta {
     }
 
     public void SelectCartaUsuario(int idUsuario) {
-        String sqlSelect = "SELECT * FROM CARTA_USUARIO WHERE ID_USUARIO = ?";
+        String sqlSelect = "SELECT * FROM cartadousuario WHERE ID_USUARIO = ?";
         try {
             statement = conexao.prepareStatement(sqlSelect);
             statement.setInt(1, idUsuario);

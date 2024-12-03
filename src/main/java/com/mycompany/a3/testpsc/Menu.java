@@ -177,6 +177,7 @@ public class Menu extends javax.swing.JFrame {
         CrudCarta crudCarta = new CrudCarta();
         CrudBD crudBD = new CrudBD();
 
+        carta.setNumero(Integer.parseInt(JOptionPane.showInputDialog("Digite o número da carta: ")));
         carta.setNome(JOptionPane.showInputDialog("Digite o nome da carta: "));
         carta.setTipo(JOptionPane.showInputDialog("Digite o tipo da carta: "));
         carta.setAtributo(JOptionPane.showInputDialog("Digite o atributo da carta: "));
