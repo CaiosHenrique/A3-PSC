@@ -21,7 +21,7 @@ public class DeleteCardMenu extends javax.swing.JFrame {
         initComponents();
         jTextFieldEmail.setBackground(new Color(0, 0, 0, 1));
         jTextFieldCard.setBackground(new Color(0, 0, 0, 1));
-        
+
     }
 
     /**
@@ -77,20 +77,30 @@ public class DeleteCardMenu extends javax.swing.JFrame {
         CrudBD crudBD = new CrudBD();
 
         String email = jTextFieldEmail.getText();
-        
+        String idCartaTexto = jTextFieldCard.getText();
+
         if (email == null || email.isEmpty()) {
             JOptionPane.showMessageDialog(null, "O campo de email está vazio!");
         } else if (!crudBD.recuperarreg(email)) {
             JOptionPane.showMessageDialog(null, "Email não encontrado.");
+        } else if (idCartaTexto == null || idCartaTexto.isEmpty()) {
+            // Verifica se o campo idCarta está vazio
+            JOptionPane.showMessageDialog(null, "O campo de ID da carta está vazio!");
         } else {
             int idUsuario = crudCarta.GetUsuarioByEmail(email);
-            int idDaCarta = Integer.parseInt(jTextFieldCard.getText());
+            int idDaCarta = Integer.parseInt(idCartaTexto);
 
-            crudCarta.DeleteCartaUsuario(idUsuario, idDaCarta);
-            crudCarta.DeleteCarta(idDaCarta);
+            // Verifica se a carta existe no banco de dados
+            if (!crudCarta.RecuperarCarta(idDaCarta)) {
+                JOptionPane.showMessageDialog(null, "Carta não encontrada no banco de dados.");
+            } else {
+                // Deleta a carta
+                crudCarta.DeleteCartaUsuario(idUsuario, idDaCarta);
+                crudCarta.DeleteCarta(idDaCarta);
 
-            JOptionPane.showMessageDialog(null, "Carta deletada com sucesso!");
-            this.setVisible(false);
+                JOptionPane.showMessageDialog(null, "Carta deletada com sucesso!");
+                this.setVisible(false);
+            }
         }
 
 

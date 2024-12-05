@@ -27,7 +27,7 @@ public class UpdateCardMenu extends javax.swing.JFrame {
         jTextFieldAtaque.setBackground(new Color(0, 0, 0, 1));
         jTextFieldDef.setBackground(new Color(0, 0, 0, 1));
         jTextFieldNumeroCarta.setBackground(new Color(0, 0, 0, 1));
-        
+
     }
 
     /**
@@ -72,10 +72,10 @@ public class UpdateCardMenu extends javax.swing.JFrame {
                 jTextFieldNomeActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 210, 30));
+        getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 210, 30));
 
         jTextFieldTipo.setBorder(null);
-        getContentPane().add(jTextFieldTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 210, 40));
+        getContentPane().add(jTextFieldTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 210, 40));
 
         jTextFieldEfeito.setBorder(null);
         jTextFieldEfeito.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +83,7 @@ public class UpdateCardMenu extends javax.swing.JFrame {
                 jTextFieldEfeitoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldEfeito, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 210, 30));
+        getContentPane().add(jTextFieldEfeito, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 210, 30));
 
         jTextFieldNivel.setBorder(null);
         jTextFieldNivel.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +91,7 @@ public class UpdateCardMenu extends javax.swing.JFrame {
                 jTextFieldNivelActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 210, 30));
+        getContentPane().add(jTextFieldNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 210, 30));
 
         jTextFieldAtaque.setBorder(null);
         jTextFieldAtaque.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +99,7 @@ public class UpdateCardMenu extends javax.swing.JFrame {
                 jTextFieldAtaqueActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldAtaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 210, 30));
+        getContentPane().add(jTextFieldAtaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 210, 30));
 
         jTextFieldDef.setBorder(null);
         jTextFieldDef.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +107,7 @@ public class UpdateCardMenu extends javax.swing.JFrame {
                 jTextFieldDefActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldDef, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 210, 30));
+        getContentPane().add(jTextFieldDef, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, 210, 30));
 
         jTextFieldAtri.setBorder(null);
         jTextFieldAtri.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +115,7 @@ public class UpdateCardMenu extends javax.swing.JFrame {
                 jTextFieldAtriActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldAtri, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 210, 30));
+        getContentPane().add(jTextFieldAtri, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 210, 30));
 
         jTextFieldNumeroCarta.setBorder(null);
         jTextFieldNumeroCarta.setDisabledTextColor(new java.awt.Color(255, 255, 255));
@@ -124,91 +124,87 @@ public class UpdateCardMenu extends javax.swing.JFrame {
                 jTextFieldNumeroCartaActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldNumeroCarta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 210, 30));
+        getContentPane().add(jTextFieldNumeroCarta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Facul USJT\\Programaçao de Software\\Projeto A3\\Imagens\\Minimenu4.png")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 290, 660));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Facul USJT\\Programaçao de Software\\Projeto A3\\Imagens\\Upcard.png")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 670));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      Cartas carta = new Cartas();
-      CrudCarta crudCarta = new CrudCarta();
-      CrudBD crudBD = new CrudBD();
+        Cartas carta = new Cartas();
+        CrudCarta crudCarta = new CrudCarta();
+        CrudBD crudBD = new CrudBD();
 
 // Verificação de campos vazios ou nulos
-if (jTextFieldNumeroCarta.getText() == null || jTextFieldNumeroCarta.getText().trim().isEmpty()) {
-    JOptionPane.showMessageDialog(null, "O campo 'Número da Carta' não pode estar vazio.");
-    return;
-}
+        if (jTextFieldNumeroCarta.getText() == null || jTextFieldNumeroCarta.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo 'Número da Carta' não pode estar vazio.");
+            return;
+        }
 
-if (jTextFieldNome.getText() == null || jTextFieldNome.getText().trim().isEmpty()) {
-    JOptionPane.showMessageDialog(null, "O campo 'Nome' não pode estar vazio.");
-    return;
-}
+        if (jTextFieldNome.getText() == null || jTextFieldNome.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo 'Nome' não pode estar vazio.");
+            return;
+        }
 
-if (jTextFieldTipo.getText() == null || jTextFieldTipo.getText().trim().isEmpty()) {
-    JOptionPane.showMessageDialog(null, "O campo 'Tipo' não pode estar vazio.");
-    return;
-}
+        if (jTextFieldTipo.getText() == null || jTextFieldTipo.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo 'Tipo' não pode estar vazio.");
+            return;
+        }
 
-if (jTextFieldAtri.getText() == null || jTextFieldAtri.getText().trim().isEmpty()) {
-    JOptionPane.showMessageDialog(null, "O campo 'Atributo' não pode estar vazio.");
-    return;
-}
+        if (jTextFieldAtri.getText() == null || jTextFieldAtri.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo 'Atributo' não pode estar vazio.");
+            return;
+        }
 
-if (jTextFieldEfeito.getText() == null || jTextFieldEfeito.getText().trim().isEmpty()) {
-    JOptionPane.showMessageDialog(null, "O campo 'Efeito' não pode estar vazio.");
-    return;
-}
+        if (jTextFieldEfeito.getText() == null || jTextFieldEfeito.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo 'Efeito' não pode estar vazio.");
+            return;
+        }
 
-if (jTextFieldNivel.getText() == null || jTextFieldNivel.getText().trim().isEmpty()) {
-    JOptionPane.showMessageDialog(null, "O campo 'Nível' não pode estar vazio.");
-    return;
-}
+        if (jTextFieldNivel.getText() == null || jTextFieldNivel.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo 'Nível' não pode estar vazio.");
+            return;
+        }
 
-if (jTextFieldAtaque.getText() == null || jTextFieldAtaque.getText().trim().isEmpty()) {
-    JOptionPane.showMessageDialog(null, "O campo 'Ataque' não pode estar vazio.");
-    return;
-}
+        if (jTextFieldAtaque.getText() == null || jTextFieldAtaque.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo 'Ataque' não pode estar vazio.");
+            return;
+        }
 
-if (jTextFieldDef.getText() == null || jTextFieldDef.getText().trim().isEmpty()) {
-    JOptionPane.showMessageDialog(null, "O campo 'Defesa' não pode estar vazio.");
-    return;
-}
+        if (jTextFieldDef.getText() == null || jTextFieldDef.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo 'Defesa' não pode estar vazio.");
+            return;
+        }
 
-try {
-    int numero = Integer.parseInt(jTextFieldNumeroCarta.getText());
-    carta.setNumero(numero);
-    
-    carta.setNome(jTextFieldNome.getText());
-    carta.setTipo(jTextFieldTipo.getText());
-    carta.setAtributo(jTextFieldAtri.getText());
-    carta.setEfeito(jTextFieldEfeito.getText());
-    
-    int nivel = Integer.parseInt(jTextFieldNivel.getText());
-    carta.setNivel(nivel);
-    
-    int ataque = Integer.parseInt(jTextFieldAtaque.getText());
-    carta.setAtaque(ataque);
-    
-    int defesa = Integer.parseInt(jTextFieldDef.getText());
-    carta.setDefesa(defesa);
+        try {
+            int numero = Integer.parseInt(jTextFieldNumeroCarta.getText());
+            carta.setNumero(numero);
 
-    
-    crudCarta.UpdateCarta(carta);
+            carta.setNome(jTextFieldNome.getText());
+            carta.setTipo(jTextFieldTipo.getText());
+            carta.setAtributo(jTextFieldAtri.getText());
+            carta.setEfeito(jTextFieldEfeito.getText());
 
-    
-    JOptionPane.showMessageDialog(null, "Carta atualizada com sucesso!");
-    this.setVisible(false);
-    
-} catch (NumberFormatException e) {
-    JOptionPane.showMessageDialog(null, "Certifique-se de que os campos 'Número', 'Nível', 'Ataque' e 'Defesa' contenham apenas números.");
-}
+            int nivel = Integer.parseInt(jTextFieldNivel.getText());
+            carta.setNivel(nivel);
 
-        
+            int ataque = Integer.parseInt(jTextFieldAtaque.getText());
+            carta.setAtaque(ataque);
+
+            int defesa = Integer.parseInt(jTextFieldDef.getText());
+            carta.setDefesa(defesa);
+
+            crudCarta.UpdateCarta(carta);
+
+            JOptionPane.showMessageDialog(null, "Carta atualizada com sucesso!");
+            this.setVisible(false);
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Certifique-se de que os campos 'Número', 'Nível', 'Ataque' e 'Defesa' contenham apenas números.");
+        }
 
 
     }//GEN-LAST:event_jButton2ActionPerformed

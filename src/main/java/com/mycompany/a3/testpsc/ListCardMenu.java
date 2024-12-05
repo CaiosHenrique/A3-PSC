@@ -5,6 +5,7 @@
 package com.mycompany.a3.testpsc;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -36,19 +37,20 @@ public class ListCardMenu extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Esquerda = new javax.swing.JButton();
         Direita = new javax.swing.JButton();
         Atributo = new javax.swing.JTextField();
         jTextFieldNumero = new javax.swing.JTextField();
-        Efeito = new javax.swing.JTextField();
         Tipo = new javax.swing.JTextField();
         Nivel = new javax.swing.JTextField();
         Ataque = new javax.swing.JTextField();
         Defesa = new javax.swing.JTextField();
         NomeCard = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        Efeito = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -78,7 +80,8 @@ public class ListCardMenu extends javax.swing.JFrame {
         });
         getContentPane().add(Direita, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 290, 120, 110));
 
-        Atributo.setForeground(new java.awt.Color(255, 255, 255));
+        Atributo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Atributo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Atributo.setBorder(null);
         Atributo.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         Atributo.addActionListener(new java.awt.event.ActionListener() {
@@ -86,9 +89,10 @@ public class ListCardMenu extends javax.swing.JFrame {
                 AtributoActionPerformed(evt);
             }
         });
-        getContentPane().add(Atributo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 180, 30));
+        getContentPane().add(Atributo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 160, 40));
 
-        jTextFieldNumero.setForeground(new java.awt.Color(255, 255, 255));
+        jTextFieldNumero.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jTextFieldNumero.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldNumero.setBorder(null);
         jTextFieldNumero.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         jTextFieldNumero.addActionListener(new java.awt.event.ActionListener() {
@@ -96,19 +100,10 @@ public class ListCardMenu extends javax.swing.JFrame {
                 jTextFieldNumeroActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 80, 30));
+        getContentPane().add(jTextFieldNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 50, 30));
 
-        Efeito.setForeground(new java.awt.Color(255, 255, 255));
-        Efeito.setBorder(null);
-        Efeito.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        Efeito.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EfeitoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Efeito, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, 180, 30));
-
-        Tipo.setForeground(new java.awt.Color(255, 255, 255));
+        Tipo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Tipo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Tipo.setBorder(null);
         Tipo.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         Tipo.addActionListener(new java.awt.event.ActionListener() {
@@ -116,9 +111,10 @@ public class ListCardMenu extends javax.swing.JFrame {
                 TipoActionPerformed(evt);
             }
         });
-        getContentPane().add(Tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 180, 30));
+        getContentPane().add(Tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 390, 160, 30));
 
-        Nivel.setForeground(new java.awt.Color(255, 255, 255));
+        Nivel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Nivel.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Nivel.setBorder(null);
         Nivel.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         Nivel.addActionListener(new java.awt.event.ActionListener() {
@@ -126,9 +122,10 @@ public class ListCardMenu extends javax.swing.JFrame {
                 NivelActionPerformed(evt);
             }
         });
-        getContentPane().add(Nivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 360, 180, 30));
+        getContentPane().add(Nivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 390, 160, 40));
 
-        Ataque.setForeground(new java.awt.Color(255, 255, 255));
+        Ataque.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Ataque.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Ataque.setBorder(null);
         Ataque.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         Ataque.addActionListener(new java.awt.event.ActionListener() {
@@ -136,9 +133,10 @@ public class ListCardMenu extends javax.swing.JFrame {
                 AtaqueActionPerformed(evt);
             }
         });
-        getContentPane().add(Ataque, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, 180, 30));
+        getContentPane().add(Ataque, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, 160, 30));
 
-        Defesa.setForeground(new java.awt.Color(255, 255, 255));
+        Defesa.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Defesa.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Defesa.setBorder(null);
         Defesa.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         Defesa.addActionListener(new java.awt.event.ActionListener() {
@@ -146,9 +144,10 @@ public class ListCardMenu extends javax.swing.JFrame {
                 DefesaActionPerformed(evt);
             }
         });
-        getContentPane().add(Defesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 410, 180, 30));
+        getContentPane().add(Defesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 460, 160, 30));
 
-        NomeCard.setForeground(new java.awt.Color(255, 255, 255));
+        NomeCard.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        NomeCard.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         NomeCard.setBorder(null);
         NomeCard.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         NomeCard.addActionListener(new java.awt.event.ActionListener() {
@@ -156,44 +155,79 @@ public class ListCardMenu extends javax.swing.JFrame {
                 NomeCardActionPerformed(evt);
             }
         });
-        getContentPane().add(NomeCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 180, 30));
+        getContentPane().add(NomeCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 160, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(
-                "C:\\Facul USJT\\Programaçao de Software\\Projeto A3\\Imagens\\ListCard.png")); // NOI18N
+        jButton2.setToolTipText("");
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 550, 220, 30));
+
+        Efeito.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Efeito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Efeito.setBorder(null);
+        Efeito.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        Efeito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EfeitoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Efeito, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 321, 160, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Facul USJT\\Programaçao de Software\\Projeto A3\\Imagens\\ListCard2.png")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 800));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+        Menu menu = new Menu();
+        menu.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     CrudCarta crud = new CrudCarta();
     int idUsuario = crud.GetUsuarioByEmail(JOptionPane.showInputDialog("Digite o email do usuario: "));
     ArrayList<Integer> cartas = crud.SelectIdCartaUsuario(idUsuario);
     ArrayList<Cartas> cartasUsuario = crud.GetCartasByArrayId(cartas);
     int i = 0;
-    private void updateCardDetails() {
-        
-        while (i < cartasUsuario.size()) {
-            Atributo.setText(cartasUsuario.get(i).getAtributo());
-            jTextFieldNumero.setText(cartasUsuario.get(i).getNumero());
-            Efeito.setText(cartasUsuario.get(i).getEfeito());
-            Tipo.setText(cartasUsuario.get(i).getTipo());
-            Nivel.setText(cartasUsuario.get(i).getNivel());
-            Ataque.setText(cartasUsuario.get(i).getAtaque());
-            Defesa.setText(cartasUsuario.get(i).getDefesa());
-            NomeCard.setText(cartasUsuario.get(i).getNome());
-            i++;
-        }
+
+    public void updateCardDetails() {
+
+        Atributo.setText(cartasUsuario.get(i).getAtributo());
+        jTextFieldNumero.setText(String.valueOf(cartasUsuario.get(i).getNumero()));
+        Efeito.setText(cartasUsuario.get(i).getEfeito());
+        Tipo.setText(cartasUsuario.get(i).getTipo());
+        Nivel.setText(String.valueOf(cartasUsuario.get(i).getNivel()));
+        Ataque.setText(String.valueOf(cartasUsuario.get(i).getAtaque()));
+        Defesa.setText(String.valueOf(cartasUsuario.get(i).getDefesa()));
+        NomeCard.setText(cartasUsuario.get(i).getNome());
+
     }
 
     private void EsquerdaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_EsquerdaActionPerformed
-        cartasUsuario.previous();
-        updateCardDetails();
+        if (i > 0) {
+            i--; // Move para a carta anterior
+            updateCardDetails();
+        } else {
+            JOptionPane.showMessageDialog(null, "Você já está na primeira carta.");
+        }
     }// GEN-LAST:event_EsquerdaActionPerformed
 
     private void DireitaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_DireitaActionPerformed
-        cartasUsuario.next();
-        updateCardDetails();
+        if (i < cartasUsuario.size() - 1) {
+            i++; // Move para a próxima carta
+            updateCardDetails();
+        } else {
+            JOptionPane.showMessageDialog(null, "Você já está na última carta.");
+        }
     }// GEN-LAST:event_DireitaActionPerformed
 
     private void AtributoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_AtributoActionPerformed
@@ -201,7 +235,7 @@ public class ListCardMenu extends javax.swing.JFrame {
     }// GEN-LAST:event_AtributoActionPerformed
 
     private void jTextFieldNumeroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextFieldNumeroActionPerformed
-        jTextFieldNumero.setText(cartasUsuario.get(i).getNumero());
+        jTextFieldNumero.setText(String.valueOf(cartasUsuario.get(i).getNumero()));
     }// GEN-LAST:event_jTextFieldNumeroActionPerformed
 
     private void EfeitoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_EfeitoActionPerformed
@@ -213,22 +247,20 @@ public class ListCardMenu extends javax.swing.JFrame {
     }// GEN-LAST:event_TipoActionPerformed
 
     private void NivelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_NivelActionPerformed
-        Nivel.setText(cartasUsuario.get(i).getNivel());
+        Nivel.setText(String.valueOf(cartasUsuario.get(i).getNivel()));
     }// GEN-LAST:event_NivelActionPerformed
 
     private void AtaqueActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_AtaqueActionPerformed
-        Ataque.setText(cartasUsuario.get(i).getAtaque());
+        Ataque.setText(String.valueOf(cartasUsuario.get(i).getAtaque()));
     }// GEN-LAST:event_AtaqueActionPerformed
 
     private void DefesaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_DefesaActionPerformed
-        Defesa.setText(cartasUsuario.get(i).getDefesa());
+        Defesa.setText(String.valueOf(cartasUsuario.get(i).getDefesa()));
     }// GEN-LAST:event_DefesaActionPerformed
 
     private void NomeCardActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_NomeCardActionPerformed
         NomeCard.setText(cartasUsuario.get(i).getNome());
     }// GEN-LAST:event_NomeCardActionPerformed
-
-
 
     /**
      * @param args the command line arguments
@@ -284,6 +316,7 @@ public class ListCardMenu extends javax.swing.JFrame {
     private javax.swing.JTextField Nivel;
     private javax.swing.JTextField NomeCard;
     private javax.swing.JTextField Tipo;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextFieldNumero;
     // End of variables declaration//GEN-END:variables

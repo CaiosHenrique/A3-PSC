@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.naming.spi.DirStateFactory.Result;
 
 public class CrudCarta {
+
     Connection conexao = ConnFactory.getConn();
     PreparedStatement statement = null;
 
@@ -51,6 +52,21 @@ public class CrudCarta {
             ConnFactory.closeConn(conexao, statement);
         }
     }
+    
+  public boolean RecuperarCarta(int idDaCarta) {
+    String sqlSelect = "SELECT COUNT(*) FROM cartadousuario WHERE NUMERO_CARTA = ?";
+    
+    try (PreparedStatement statement = conexao.prepareStatement(sqlSelect)) {
+        statement.setInt(1, idDaCarta);
+        
+        try (ResultSet resultSet = statement.executeQuery()) {
+            return resultSet.next() && resultSet.getInt(1) > 0;
+        }
+    } catch (Exception e) {
+        System.out.println("Erro ao verificar a existência da carta: " + e);
+        return false;
+    }
+}
 
     public void DeleteCarta(int id) {
         String sqlDelete = "DELETE FROM CARTA WHERE numero = ?";

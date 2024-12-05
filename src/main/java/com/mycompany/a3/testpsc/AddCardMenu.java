@@ -26,7 +26,7 @@ public class AddCardMenu extends javax.swing.JFrame {
         jTextFieldNivel.setBackground(new Color(0, 0, 0, 1));
         jTextFieldAtaque.setBackground(new Color(0, 0, 0, 1));
         jTextFieldDef.setBackground(new Color(0, 0, 0, 1));
-        
+
     }
 
     /**
@@ -115,7 +115,7 @@ public class AddCardMenu extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldAtri, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 250, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Facul USJT\\Programaçao de Software\\Projeto A3\\Imagens\\Minimenu3.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Facul USJT\\Programaçao de Software\\Projeto A3\\Imagens\\AddCard.png")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 360, 640));
 
         pack();
@@ -126,7 +126,7 @@ public class AddCardMenu extends javax.swing.JFrame {
         Cartas carta = new Cartas();
         CrudCarta crudCarta = new CrudCarta();
         CrudBD crudBD = new CrudBD();
-        
+
         carta.setNome(jTextFieldNome.getText());
         carta.setTipo(jTextFieldTipo.getText());
         carta.setAtributo(jTextFieldAtri.getText());
@@ -138,8 +138,6 @@ public class AddCardMenu extends javax.swing.JFrame {
         int defesa = Integer.parseInt(jTextFieldDef.getText());
         carta.setDefesa(defesa);
 
-        
-
         String email = JOptionPane.showInputDialog("Digite o email do usuário para confirmação: ");
         if (email == null || email.isEmpty()) {
             JOptionPane.showMessageDialog(null, "O campo de email está vazio!");
@@ -147,13 +145,13 @@ public class AddCardMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Email não encontrado.");
         } else {
 
-        int idUsuario = crudCarta.GetUsuarioByEmail(email);
-        int idDaCarta = crudCarta.InsertCarta(carta);
-        
-        crudCarta.InsertCartaUsuario(idUsuario, idDaCarta);
+            int idUsuario = crudCarta.GetUsuarioByEmail(email);
+            int idDaCarta = crudCarta.InsertCarta(carta);
 
-        JOptionPane.showMessageDialog(null, "Carta cadastrada com sucesso!");
-        this.setVisible(false);
+            crudCarta.InsertCartaUsuario(idUsuario, idDaCarta);
+
+            JOptionPane.showMessageDialog(null, "Carta cadastrada com sucesso!");
+            this.setVisible(false);
         }
 
 

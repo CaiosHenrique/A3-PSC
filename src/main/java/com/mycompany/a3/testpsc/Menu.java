@@ -171,21 +171,24 @@ public class Menu extends javax.swing.JFrame {
     private void EditCardActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_EditCardActionPerformed
         UpdateCardMenu updateCard = new UpdateCardMenu();
         updateCard.setVisible(true);
-        
+
     }// GEN-LAST:event_EditCardActionPerformed
 
     private void AddCardActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_AddCardActionPerformed
         AddCardMenu addCard = new AddCardMenu();
         addCard.setVisible(true);
+
     }// GEN-LAST:event_AddCardActionPerformed
 
     private void ListCardsActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ListCardsActionPerformed
-        ListCardsMenu listCards = new ListCardsMenu();
+        ListCardMenu listCards = new ListCardMenu();
         listCards.setVisible(true);
+        listCards.updateCardDetails();
+
     }// GEN-LAST:event_ListCardsActionPerformed
 
     private void DeleteCardActionPerformed(java.awt.event.ActionEvent evt) {
-         DeleteCardMenu delCard = new DeleteCardMenu();
+        DeleteCardMenu delCard = new DeleteCardMenu();
         delCard.setVisible(true);
     }
 
