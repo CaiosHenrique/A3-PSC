@@ -180,7 +180,8 @@ public class Menu extends javax.swing.JFrame {
     }// GEN-LAST:event_AddCardActionPerformed
 
     private void ListCardsActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ListCardsActionPerformed
-        // TODO add your handling code here:
+        ListCardsMenu listCards = new ListCardsMenu();
+        listCards.setVisible(true);
     }// GEN-LAST:event_ListCardsActionPerformed
 
     private void DeleteCardActionPerformed(java.awt.event.ActionEvent evt) {
