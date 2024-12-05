@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.naming.spi.DirStateFactory.Result;
 
@@ -76,7 +77,7 @@ public class CrudCarta {
         }
     }
 
-    public ArraayList<integer> SelectIdCartaUsuario(int id) {
+    public ArrayList<Integer> SelectIdCartaUsuario(int id) {
         String sqlSelect = "SELECT numero_carta FROM cartadousuario WHERE ID_USUARIO = ?";
         ArrayList<Integer> cartas = new ArrayList<Integer>();
         try {

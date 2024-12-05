@@ -169,7 +169,9 @@ public class Menu extends javax.swing.JFrame {
     }// GEN-LAST:event_jTextFieldEmailActionPerformed
 
     private void EditCardActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_EditCardActionPerformed
-        // TODO add your handling code here:
+        UpdateCardMenu updateCard = new UpdateCardMenu();
+        updateCard.setVisible(true);
+        
     }// GEN-LAST:event_EditCardActionPerformed
 
     private void AddCardActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_AddCardActionPerformed
